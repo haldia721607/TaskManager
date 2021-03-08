@@ -1,0 +1,9 @@
+1.Install Node Js Latest Versoin /And required versoin
+2.Open NodeJs command promt type command for install angular CLI- 
+npm install @angular/cli -g
+3.Open command promat if wanto change drive (C:\Users\Ravi Shanker Pandey>D:)
+4.To make folder in drive (D:\md d:\DemoAngularCrud)
+5.Go to in DemoAngularCrud folder (cd d:\DemoAngularCrud)
+6. create new project d:\DemoAngularCrud> ng new  DemoAngularCrud --style=scss --routing
+
+7.npm install @auth0/angular-jwt --save

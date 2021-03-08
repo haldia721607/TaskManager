@@ -1,0 +1,16 @@
+admin@gmail.com
+
+admin
+Admin@123
+
+npm install @angular/cli -g
+md d:\Angular
+cd d:\Angular
+ng new TaskManager --style=scss --routing --skip-install
+node_modules/bootstrap/dist/css/bootstrap.css
+node_modules/font-awesome/css/
+
+http://localhost:4200/img/logo/logo.png
+
+
+7040474414

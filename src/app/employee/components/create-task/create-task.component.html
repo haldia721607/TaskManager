@@ -1,0 +1,88 @@
+<h1>Create Task</h1>
+<form [formGroup]="newTaskForm" novalidate="novalidate" #CreateForm="ngForm">
+  <div class="row">
+
+    <div class="col-12">
+      <div class="form-group">
+        <label for="TaskName" class="text-infor" style="font-size:18px">Task Name:</label>
+        <input type="text" class="form-control" id="TaskName" placeholder="Task Name" style="font-size:20px" autofocus="autofocus" formControlName="TaskName">
+
+        <span class="text-danger" *ngIf="newTaskForm.get('TaskName').invalid && (newTaskForm.get('TaskName').dirty || newTaskForm.get('TaskName').touched || CreateForm.submitted) && newTaskForm.get('TaskName').errors?.required">Task Name can't be blank</span>
+      </div>
+    </div>
+
+    <div class="col-12">
+      <div class="form-group">
+        <label for="description" class="text-info">Description:</label>
+        <textarea class="form-control" id="Description" placeholder="Description" formControlName="Description"></textarea>
+      </div>
+    </div>
+
+    <div class="col-lg-6">
+      <div class="form-group form-row">
+        <label for="ProjectID" class="text-info col-md-3 col-form-label">Project:</label>
+        <div class="col-md-9">
+          <select class="form-control" id="ProjectID" formControlName="ProjectID">
+            <option value="null">Please Select</option>
+
+            <option *ngFor="let project of projects | async" [value]="project.ProjectID">
+              {{project.ProjectName}}
+            </option>
+          </select>
+
+          <span class="text-danger" *ngIf="newTaskForm.get('ProjectID').invalid && (newTaskForm.get('ProjectID').dirty || newTaskForm.get('ProjectID').touched || CreateForm.submitted) && newTaskForm.get('ProjectID').errors?.required">Please select project, to which the task belongs to.</span>
+        </div>
+      </div>
+
+      <div class="form-group form-row">
+        <label for="AssignedTo" class="text-info col-md-3 col-form-label">Assigned To:</label>
+        <div class="col-md-9">
+          <select class="form-control" id="AssignedTo" formControlName="AssignedTo">
+            <option value="null">Please Select</option>
+
+            <option [value]="employee.Id" *ngFor="let employee of employees | async">
+              {{employee.UserName}}
+            </option>
+          </select>
+
+          <span class="text-danger" *ngIf="newTaskForm.get('AssignedTo').invalid && (newTaskForm.get('AssignedTo').dirty || newTaskForm.get('AssignedTo').touched || CreateForm.submitted) && newTaskForm.get('AssignedTo').errors?.required">Select the employee, to whom the task id assigned.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-6">
+      <div class="form-group form-row">
+        <label for="TaskPriorityID" class="text-info col-md-3 col-form-label">Priority:</label>
+        <div class="col-md-9">
+          <select class="form-control" id="TaskPriorityID" formControlName="TaskPriorityID">
+            <option value="null">Please Select</option>
+
+            <option [value]="taskPriority.TaskPriorityID" *ngFor="let taskPriority of taskPriorities | async">
+              {{taskPriority.TaskPriorityName}}
+            </option>
+          </select>
+
+          <span class="text-danger" *ngIf="newTaskForm.get('TaskPriorityID').invalid && (newTaskForm.get('TaskPriorityID').dirty || newTaskForm.get('TaskPriorityID').touched || CreateForm.submitted) && newTaskForm.get('TaskPriorityID').errors?.required">Select the employee, to whom the task id assigned.</span>
+      
+        </div>
+      </div>
+
+      <div class="form-group form-row">
+          <label for="TaskStatus" class="text-info col-md-3 col-form-label">Status:</label>
+          <div class="col-md-9">
+            <input type="text" class="form-control-plaintext" id="TaskStatus" placeholder="Task Status" value="Holding" readonly="readonly">
+          </div>
+        </div>
+    </div>
+
+
+    <div class="col-lg-12 border-top text-center">
+      <div>
+        <button class="btn btn-success btn-lg mt-2" (click)="onCreateTaskClick($event)">Create Task</button>
+      </div>
+      <a class="btn btn-info btn-sm mt-1" [routerLink]=" [ '/employee', 'tasks' ] ">Back to Tasks</a>
+    </div>
+
+  </div>
+</form>
+

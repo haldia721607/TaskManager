@@ -1,0 +1,9 @@
+1. Right Click to any folder and select git BASHE HERE and command ope 
+2. enter {git config --global user.name "haldia721607"}
+3. after {git config --global user.email "myemailtest23072018@gmail.com"}
+4. after {git clone https://github.com/haldia721607/TaskManager}
+5. after {cd TaskManager}
+6. {git status}
+7. {git add .}
+8. {git commit -m "Any thing you want to write"}
+9. {git push origin master}
